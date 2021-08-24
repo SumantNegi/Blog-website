@@ -1,0 +1,60 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%}
+register
+{%endblock title%}
+
+
+{%block content%}
+
+
+{% for message in messages%}
+  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>USER  ! </strong> {{message}}.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{%endfor%}  
+
+<body style="background-color: #1c1b29;color:rgba(26, 188,156, 1);"></body>
+<div class="section-1-H" style="color: rgba(26, 188,156, 1);">
+  <h1>Register Here</h1>
+</div>
+<div class="container">
+
+<form method="POST" action='register' class="row g-3">
+  {% csrf_token %}
+    <div class="col-md-6">
+      <label for="inputfirsrtname" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="inputfirsrtname" name="firstname">
+    </div>
+    <div class="col-md-6">
+      <label for="inputlastname" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="inputlastname" name="lastname">
+    </div>
+    <div class="col-md-12" >
+      <label for="inputEmail4" class="form-label">UserName</label>
+      <input type="text" class="form-control" id="inputEmail4"name="username">
+    </div>  
+    <div class="col-md-12" >
+      <label for="inputEmail4" class="form-label">email</label>
+      <input type="email" class="form-control" id="inputEmail4" name="email">
+    </div>  
+    
+    <div class="col-md-6">
+      <label for="inputpassword4" class="form-label">Password</label>
+      <input type="password" class="form-control" placeholder="password must contain at least 8 characters." id="inputpassword4" name="password1">
+    </div>
+    <div class="col-md-6">
+      <label for="inputpasswordfix" class="form-label">Confirm Password</label>
+      <input type="password" class="form-control" id="inputpasswordfix" name="password2">
+    </div>
+    
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+</form>
+</div>  
+
+</body>
+
+{%endblock%}

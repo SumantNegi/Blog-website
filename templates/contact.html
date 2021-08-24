@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%}
+contact us
+{%endblock title%}
+
+
+{%block content%}
+
+<div class="contact">
+   <h1 class="section-1-H"> Contact Us</h1>
+   <div class="line"></div>
+</div>
+<div class="container">
+<form action="" target="post">
+  <input class="f-info" type="text" placeholder="your name">
+  <input class="f-info" type="email" placeholder="your Email">
+  <input class="f-info" type="text" placeholder="your Phone_no">
+  <textarea class="f-info c-text" name=""  cols="20" rows="10" placeholder="your message"></textarea>
+  <div class="center">
+  <input class="c-btn" type="button"  value="send">
+  </div>
+</form>
+</div>
+{%endblock %}  
+
+  

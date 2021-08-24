@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%}
+{{ post.title }}
+{%endblock title%}
+
+
+{%block content%}
+<div style="min-height:625px ;height:auto" class="section-1 " >
+    <div class="section-1-H">
+        <h1>{{ post.title }}</h1>
+    </div> 
+    <div class="container img-detail">
+        <span class="c-author">{{ post.author.first_name }}{{ post.author.last_name }}</span>
+        <img class="img-card" src="{%static post.image%}" alt="">
+        <br>
+        <span  class="c-dt">{{post.upload_at}}</span>
+        <h4>{{ post.desc}}</h4>
+        <p>{{post.detail|safe}}</p>
+    </div> 
+
+</div>
+{%endblock %}

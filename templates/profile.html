@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%}
+User Profile
+{%endblock title%}
+{%block content%}
+<div class="section-1-H" style="color: rgba(26, 188,156, 1)">
+    <h1>User Profile</h1>
+</div>
+<div class="container">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">title</th>
+        <th scope="col">Create at</th>
+        <th scope="col">ADD BLOG : <a class="btn btn-danger" href="addpost">CREATE BLOG</a></th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for post in Post_obj %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{post.title}}</td>
+        <td>{{post.created_at}}</td>
+        <td><a class="btn btn-warning" href="{% url 'update' post.slug %}">UPDATE</a>
+            <a class="btn btn-dark" href="{% url 'delete' post.slug %}">DELETE</a></td>
+      </tr>
+     {% endfor%} 
+    </tbody>
+  </table>
+  
+{%endblock %}

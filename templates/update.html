@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%}
+Add_Post
+{%endblock title%}
+
+
+{%block content%}
+<div class="section-1-H" style="color: rgba(26, 188,156, 1)">
+    <h1>Create Post</h1>
+</div>
+<div class="container">
+
+<form action="addpost" method="POST" enctype="multipart/form-data">
+    
+    {% csrf_token %}
+        <div class="col-md-12" >
+            <label for="inputEmail4" class="form-label">Enter the Title</label>
+            <input type="text" value="{{Post_obj.title}}" class="form-control" placeholder="Title" id="title"name="title">
+        </div>  
+        <div class="col-md-12" >
+            <label for="inputEmail4" class="form-label">Enter the description</label>
+            <input type="text" value="{{Post_obj.desc}}" class="form-control" placeholder="not more than 30 words" id="description"name="description">
+        </div>  
+        <div class="col-md-12">
+            {{form.media}}
+            {{form.as_p}}
+        </div>
+      
+        <button class="btn btn-info mt-2" style="background-color: rgba(26, 188,156, 1); color:white">Post</button>
+    
+</form>    
+</div>
+
+{%endblock%}

@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block title%}
+login
+{%endblock title%}
+
+
+{%block content%}
+<body style="background-color: #1c1b29;">
+  
+
+{% for message in messages%}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>USER ! {{message}}. </strong> 
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{%endfor%}
+
+    <div class="center " style="align-items: center;height: 625px; ">
+    <div class="login ">
+    <form class="box" action='login' method="POST">
+      {% csrf_token %}
+        <h1 style="text-align: center;margin-top:-40px ">Login</h1> 
+        <input class="l-text" type="text" name="username" placeholder="username">
+        <input class="l-text" type="password" name="password" placeholder="Password">
+        <div class="center">
+        <button class="btn btn-info" type="submit">login</button> 
+        <div class="l-btn" >
+        </div>
+        <a class="l-b" style="text-decoration:none;margin-left:10px" href="{% url 'register' %}"  >/New User Sign Up</a>
+
+        </div>
+      </form>
+    </div>  
+    </div>
+  </body>    
+{%endblock %}
