@@ -1,4 +1,4 @@
-from math import trunc
+from math import fabs, trunc
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
@@ -15,8 +15,8 @@ class post( models.Model):
     detail=FroalaField()
     slug =models.SlugField(max_length=1000, null=True,blank=True)
     image=models.ImageField(upload_to='image')
-    created_at=models.DateTimeField(auto_now_add=True)
-    upload_at=models.DateTimeField(auto_now=True)
+    created_at=models.DateTimeField(auto_now_add=True,auto_now=False)
+    update_at=models.DateTimeField(auto_now=True,auto_now_add=False)
 
     def __str__(self):
         return self.title 

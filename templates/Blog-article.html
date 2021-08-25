@@ -10,11 +10,13 @@
     <div class="section-1-H">
         <h1>{{ post.title }}</h1>
     </div> 
-    <div class="container img-detail">
-        <span class="c-author">{{ post.author.first_name }}{{ post.author.last_name }}</span>
+    <div class="container ">
+        
+        <div class="p-a-img img-detail">
         <img class="img-card" src="{%static post.image%}" alt="">
-        <br>
-        <span  class="c-dt">{{post.upload_at}}</span>
+        </div>
+        <h3 class="c-author" style="margin-left:10px ;">  AUTHOR :- {{ post.author.first_name }} {{ post.author.last_name }}</h3>
+        <h5 class="c-dt">{{post.created_at}}</h5>
         <h4>{{ post.desc}}</h4>
         <p>{{post.detail|safe}}</p>
     </div> 

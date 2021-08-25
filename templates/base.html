@@ -29,19 +29,19 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-l active" aria-current="page" href="/blogpost">Blogs</a>
+            <a class="nav-l active" aria-current="page" href="{%url 'blogpost' %}">Blogs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-l" href="/about">About Us</a>
+            <a class="nav-l" href="{%url 'about' %}">About Us</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-l" href="/contact">Contact</a>
+            <a class="nav-l" href="{%url 'contact' %}">Contact</a>
           </li>
         
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-l" href="logout">Logout</a>
+            <a class="nav-l" href="{%url 'logout' %}">Logout</a>
           </li>
           <li class="nav-item">
             <a style=" font-weight:bold;font-size: 20px;" class="nav-l" href="{%url 'profile' %}">{{request.user}}</a>

@@ -14,6 +14,7 @@ User Profile
         <th scope="col">#</th>
         <th scope="col">title</th>
         <th scope="col">Create at</th>
+        <th scope="col">Update at</th>
         <th scope="col">ADD BLOG : <a class="btn btn-danger" href="addpost">CREATE BLOG</a></th>
       </tr>
     </thead>
@@ -23,6 +24,7 @@ User Profile
         <th scope="row">{{forloop.counter}}</th>
         <td>{{post.title}}</td>
         <td>{{post.created_at}}</td>
+        <td>{{post.update_at}}</td>
         <td><a class="btn btn-warning" href="{% url 'update' post.slug %}">UPDATE</a>
             <a class="btn btn-dark" href="{% url 'delete' post.slug %}">DELETE</a></td>
       </tr>

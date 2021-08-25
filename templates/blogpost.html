@@ -10,7 +10,7 @@ blog post
   <!-- starting blog card -->
 <div style="min-height:625px ;height:auto" class="section-1 " >
   <div class="section-1-H">
-    <H1>latest Blogs</H1>
+    <H1>All Posted Blogs</H1>
   </div>
   
   <div class="section-1-m" >
@@ -21,7 +21,7 @@ blog post
       </div>
       <div class="img-detail">
         <H4 class="card-t">{{ post.title }}</H4>
-        <span  class="c-dt">{{post.upload_at}}</span>
+        <span  class="c-dt">{{post.created_at}}</span>
         <div class="card-info">
         <span class="c-author">Author -{{ post.author.first_name }} {{ post.author.last_name }}</span>
         </div>

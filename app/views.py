@@ -9,8 +9,10 @@ from .form import blogform
 
 # Create your views here.
 
-def home (request):
-    return render(request,"home.html" )
+class home (ListView):
+    model = post
+    template_name='home.html'
+    ordering=['-created_at']
 
 class blogpost (ListView):
     model = post
@@ -60,29 +62,29 @@ def user_delete(request,slug):
     Post_obj.delete()
     return redirect('profile')  
 
-def update_blog(request,slug):
+def update_blog(request, slug):
     context={}
     try:
         Post_obj=post.objects.get(slug=slug)
-        if Post_obj.author !=request.user:
-            return redirect('/')
+       
 
-        intial_dict={'detail':Post_obj.detail}
+        intial_dict={'detail':Post_obj.detail,'image':Post_obj.image}
         form=blogform(initial= intial_dict)    
         if request.method =='POST':
             form=blogform(request.POST)
-            image=request.FILES['image']
-            title=request.POST.get('title')
-            desc=request.POST.get('description')
-            detail=request.POST.get('detail')
-            user=request.user
-        
+           
                 
             if form.is_valid():
                 detail=form.cleaned_data['detail']
-    
-            Post_obj=post.objects.create(title=title,desc=desc,image=image,detail=detail,author=user)
+                
+            Post_obj.title=request.POST.get('title')
+            Post_obj.desc=request.POST.get('description')
+            Post_obj.detail=request.POST.get('detail')
+            Post_obj.image=request.FILES['image']
+
+                  
             Post_obj.save()
+            return redirect('profile')
         
         context['Post_obj']=Post_obj
         context['form']=form

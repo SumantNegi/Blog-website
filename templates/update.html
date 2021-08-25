@@ -11,7 +11,7 @@ Add_Post
 </div>
 <div class="container">
 
-<form action="addpost" method="POST" enctype="multipart/form-data">
+<form            method="POST" enctype="multipart/form-data">
     
     {% csrf_token %}
         <div class="col-md-12" >
@@ -27,7 +27,7 @@ Add_Post
             {{form.as_p}}
         </div>
       
-        <button class="btn btn-info mt-2" style="background-color: rgba(26, 188,156, 1); color:white">Post</button>
+        <button class="btn btn-info mt-2" style="background-color: rgba(26, 188,156, 1); color:white">Update</button>
     
 </form>    
 </div>
