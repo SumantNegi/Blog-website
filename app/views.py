@@ -62,27 +62,23 @@ def user_delete(request,slug):
     Post_obj.delete()
     return redirect('profile')  
 
-def update_blog(request, slug):
+def update(request, slug):
     context={}
     try:
         Post_obj=post.objects.get(slug=slug)
-       
-
         intial_dict={'detail':Post_obj.detail,'image':Post_obj.image}
         form=blogform(initial= intial_dict)    
         if request.method =='POST':
-            form=blogform(request.POST)
+            form=blogform(request.POST, request.FILES)
            
                 
             if form.is_valid():
                 detail=form.cleaned_data['detail']
-                
+
             Post_obj.title=request.POST.get('title')
             Post_obj.desc=request.POST.get('description')
             Post_obj.detail=request.POST.get('detail')
-            Post_obj.image=request.FILES['image']
-
-                  
+            
             Post_obj.save()
             return redirect('profile')
         
